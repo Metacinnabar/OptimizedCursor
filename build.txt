@@ -1,0 +1,4 @@
+displayName = Optimized Cursor
+author = Metacinnabar
+version = 1.0.0
+side = client

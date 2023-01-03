@@ -41,10 +41,13 @@ public class CursorRenderSystem : ModSystem
         // I am not exactly sure what here is necessary
         On.Terraria.Main.Draw -= Draw;
         
-        // dispose all resources
-        _cursorRenderTarget.Dispose();
-        // set all resources to null so they can be garbage collected
-        _cursorRenderTarget = null!;
+        Main.QueueMainThreadAction(() =>
+        {
+            // dispose all resources
+            _cursorRenderTarget.Dispose();
+            // set all resources to null so they can be garbage collected
+            _cursorRenderTarget = null!;
+        });
         
         // free cursor memory
         if (_lastCursor == IntPtr.Zero) 

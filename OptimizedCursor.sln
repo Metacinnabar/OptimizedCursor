@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDLCursorDebug", "SDLCursorDebug\SDLCursorDebug.csproj", "{40C1BF8F-E78E-4436-B254-6EB4242988AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizedCursor", "OptimizedCursor\OptimizedCursor.csproj", "{2860173A-E636-4F82-96DB-8FCA6DA0D628}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40C1BF8F-E78E-4436-B254-6EB4242988AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C1BF8F-E78E-4436-B254-6EB4242988AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C1BF8F-E78E-4436-B254-6EB4242988AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C1BF8F-E78E-4436-B254-6EB4242988AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2860173A-E636-4F82-96DB-8FCA6DA0D628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2860173A-E636-4F82-96DB-8FCA6DA0D628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2860173A-E636-4F82-96DB-8FCA6DA0D628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2860173A-E636-4F82-96DB-8FCA6DA0D628}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -12,26 +12,26 @@ public class VanillaOverrideSystem : ModSystem
     public override void Load()
     {
         // allow for showing the SDL cursor
-        IL.Terraria.Main.DoUpdate += MainOnDoUpdate;
+        Terraria.IL_Main.DoUpdate += MainOnDoUpdate;
         // remove vanilla cursor drawing
-        IL.Terraria.Main.DrawCursor += ReturnAtStart;
-        IL.Terraria.Main.DrawThickCursor += MainOnDrawThickCursor;
-        IL.Terraria.Main.DrawInterface_36_Cursor += ReturnAtStart;
+        Terraria.IL_Main.DrawCursor += ReturnAtStart;
+        Terraria.IL_Main.DrawThickCursor += MainOnDrawThickCursor;
+        Terraria.IL_Main.DrawInterface_36_Cursor += ReturnAtStart;
         // allow for our renderTarget to process cursor overrides
-        IL.Terraria.Main.DrawInterface_41_InterfaceLogic4 += MainOnDrawInterface_41_InterfaceLogic4;
+        Terraria.IL_Main.DrawInterface_41_InterfaceLogic4 += MainOnDrawInterface_41_InterfaceLogic4;
         // fix vanilla bug of having smart cursor in main menu
-        IL.Terraria.WorldGen.SaveAndQuitCallBack += WorldGenOnSaveAndQuitCallBack;
+        Terraria.IL_WorldGen.SaveAndQuitCallBack += WorldGenOnSaveAndQuitCallBack;
     }
 
     public override void Unload()
     {
         // unsubscribe from all the IL
-        IL.Terraria.Main.DoUpdate -= MainOnDoUpdate;
-        IL.Terraria.Main.DrawCursor -= ReturnAtStart;
-        IL.Terraria.Main.DrawThickCursor -= MainOnDrawThickCursor;
-        IL.Terraria.Main.DrawInterface_36_Cursor -= ReturnAtStart;
-        IL.Terraria.Main.DrawInterface_41_InterfaceLogic4 -= MainOnDrawInterface_41_InterfaceLogic4;
-        IL.Terraria.WorldGen.SaveAndQuitCallBack -= WorldGenOnSaveAndQuitCallBack;
+        Terraria.IL_Main.DoUpdate -= MainOnDoUpdate;
+        Terraria.IL_Main.DrawCursor -= ReturnAtStart;
+        Terraria.IL_Main.DrawThickCursor -= MainOnDrawThickCursor;
+        Terraria.IL_Main.DrawInterface_36_Cursor -= ReturnAtStart;
+        Terraria.IL_Main.DrawInterface_41_InterfaceLogic4 -= MainOnDrawInterface_41_InterfaceLogic4;
+        Terraria.IL_WorldGen.SaveAndQuitCallBack -= WorldGenOnSaveAndQuitCallBack;
     }
 
     private static void ReturnAtStart(ILContext il)
@@ -117,7 +117,10 @@ public class VanillaOverrideSystem : ModSystem
                 i => i.MatchStsfld(typeof(Main).GetField(nameof(Main.gameMenu)))))
             return;
 
+        // honestly forgot what this does but changed Main.SmartCursorWanted to Main.SmartCursorWanted_Mouse
+        // I figured it out: fixes vanilla bug where smart cursor will stay big even when backing out to main menu
+        
         // next pos is call      void Terraria.Audio.SoundEngine::StopTrackedSounds()
-        c.EmitDelegate(() => { Main.SmartCursorWanted = false; });
+        c.EmitDelegate(() => { Main.SmartCursorWanted_Mouse = false; });
     }
 }

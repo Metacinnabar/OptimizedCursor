@@ -13,6 +13,7 @@
  * IN THE SOFTWARE.
  */
 
+using System;
 using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework.Graphics;
 using SDL2;

@@ -17,8 +17,8 @@ public class CursorRenderSystem : ModSystem
     private IntPtr _lastCursor;
     private bool _initialized;
 
-    // estimation
-    private const int CursorSize = 30;
+    // estimation, enough for 200% uiscale
+    private const int CursorSize = 60;
 
     public override void Load()
     {
@@ -33,13 +33,13 @@ public class CursorRenderSystem : ModSystem
         resetEvent.Wait();
         _initialized = true;
 
-        On.Terraria.Main.Draw += Draw;
+        On_Main.Draw += Draw;
     }
     
     public override void Unload()
     {
         // I am not exactly sure what here is necessary
-        On.Terraria.Main.Draw -= Draw;
+        On_Main.Draw -= Draw;
         
         Main.QueueMainThreadAction(() =>
         {
@@ -88,7 +88,7 @@ public class CursorRenderSystem : ModSystem
         Main.graphics.GraphicsDevice.SetRenderTarget(null);
     }
 
-    private void Draw(On.Terraria.Main.orig_Draw orig, Main self, GameTime gameTime)
+    private void Draw(On_Main.orig_Draw orig, Main self, GameTime gameTime)
     {
         // Load render targets before drawing anything.
         LoadCursorRenderTarget();

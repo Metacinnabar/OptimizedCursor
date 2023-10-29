@@ -1,0 +1,9 @@
+Optimized Cursor is a Terraria mod that modifies the in-game cursor to run at the same FPS as your computer instead of the FPS of Terraria. While it significantly alters cursor speed, it maintains vanilla cursor functionality.
+
+Keep in mind that this mod lacks support for
+- gamepads
+- screen capture menu
+- rainbow cursor
+- any mods that change the cursor
+
+For any bugs or mod incompatibilities either make a comment on the Steam workshop or write up an issue through GitHub.
